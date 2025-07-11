@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QueueBuddy - Find Your Perfect League Duo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0e23;
+      color: #f0e7cf;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin: 0 0 10px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      color: #d4af37;
+      margin-bottom: 30px;
+    }
+    .cta-button {
+      background-color: #d4af37;
+      color: #0a0e23;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .feature-card {
+      background-color: #11142b;
+      border: 1px solid #2c2f4a;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+    }
+    .feature-title {
+      font-size: 1.2rem;
+      color: #d4af37;
+      margin-bottom: 15px;
+    }
+    .waitlist {
+      max-width: 500px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+    input[type="email"] {
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      width: 70%;
+      margin-bottom: 10px;
+    }
+    .submit-button {
+      background-color: #d4af37;
+      color: #0a0e23;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/queuebuddy-logo.png" alt="QueueBuddy Logo" class="logo" />
+    <h1>Find Your Perfect League of Legends Duo</h1>
+    <h2>Matching Playstyles, Not Just Ranks</h2>
+    <button class="cta-button">Find a Duo</button>
+  </header>
+
+  <section class="features">
+    <div class="feature-card">
+      <div class="feature-title">Superior Matching Algorithm</div>
+      <p>Categorizes and matches players based on their in-game playstyle.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Stronger Community</div>
+      <p>Built-in forums, duo-building workshops, and coaching integrations.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Prevention of Toxicity</div>
+      <p>Robust reporting system and detection of suspicious activity.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-title">Innovative Features</div>
+      <p>Replay analysis, voice chat integration, AI-powered matching, and more.</p>
+    </div>
+  </section>
+
+  <section class="waitlist">
+    <h2>Join the Waitlist</h2>
+    <p>Be the first to know when QueueBuddy launches!</p>
+    <form action="#" method="post">
+      <input type="email" placeholder="Enter your email" required />
+      <br />
+      <button type="submit" class="submit-button">Join Now</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 QueueBuddy. All rights reserved.
+  </footer>
+</body>
+</html>
