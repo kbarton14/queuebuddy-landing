@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QueueBuddy - Find Your Perfect League Duo</title>
   <style>
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyB41VRMBHvW25LFNdrJfAyeYZwo_c70Mo0",
+  authDomain: "queuebuddy-ec760.firebaseapp.com",
+  projectId: "queuebuddy-ec760",
+  storageBucket: "queuebuddy-ec760.firebasestorage.app",
+  messagingSenderId: "485098667671",
+  appId: "1:485098667671:web:11857d04c3423b175873d2"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+    
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -240,38 +259,34 @@
     &copy; 2025 QueueBuddy. All rights reserved.
   </footer>
 
-  <script>
-    function startQuiz() {
-      document.getElementById("quizModal").style.display = "flex";
-      currentQuestion = 0;
-      const questions = document.querySelectorAll('.question');
-      questions.forEach(q => q.classList.remove('active'));
-      questions[0].classList.add('active');
-      document.querySelector('.next-button').style.display = 'inline-block';
-      document.querySelector('.submit-button').style.display = 'none';
-    }
+<script>
+  function submitQuiz() {
+    const data = {
+      server: document.querySelector('input[name="server"]:checked')?.value,
+      rank: document.querySelector('input[name="rank"]:checked')?.value,
+      role: [...document.querySelectorAll('input[name="role"]:checked')].map(r => r.value),
+      champ1: document.querySelector('input[name="champ1"]')?.value,
+      champ2: document.querySelector('input[name="champ2"]')?.value,
+      champ3: document.querySelector('input[name="champ3"]')?.value,
+      time: [...document.querySelectorAll('input[name="time"]:checked')].map(t => t.value),
+      laneplay: document.querySelector('input[name="laneplay"]:checked')?.value,
+      tilt: document.querySelector('input[name="tilt"]:checked')?.value,
+      goal: document.querySelector('input[name="goal"]:checked')?.value,
+      voice: document.querySelector('input[name="voice"]:checked')?.value,
+      email: document.querySelector('input[name="email"]')?.value,
+      submittedAt: new Date().toISOString()
+    };
 
-    function closeQuiz() {
-      document.getElementById("quizModal").style.display = "none";
-    }
-
-    let currentQuestion = 0;
-    const questions = document.querySelectorAll('.question');
-    const nextButton = document.querySelector('.next-button');
-    const submitButton = document.querySelector('.submit-button');
-
-    function nextQuestion() {
-      if (currentQuestion < questions.length - 1) {
-        questions[currentQuestion].classList.remove('active');
-        currentQuestion++;
-        questions[currentQuestion].classList.add('active');
-
-        if (currentQuestion === questions.length - 1) {
-          nextButton.style.display = 'none';
-          submitButton.style.display = 'inline-block';
-        }
-      }
-    }
-  </script>
+    db.collection('quizResponses').add(data)
+      .then(() => {
+        alert('Quiz submitted successfully!');
+        closeQuiz();
+      })
+      .catch((error) => {
+        console.error('Error saving data:', error);
+        alert('There was an error submitting your quiz.');
+      });
+  }
+</script>
 </body>
 </html>
